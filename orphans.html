@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>happyreturns Database</title>
+        <!-- Tell the browser to be responsive to screen width -->
+        <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon.png">
+        <!-- Bootstrap 3.3.5 -->
+        <link rel="stylesheet" href="bower/admin-lte/bootstrap/css/bootstrap.min.css">
+        <!-- Font Awesome -->
+        <link rel="stylesheet" href="bower/font-awesome/css/font-awesome.min.css">
+        <!-- Ionicons -->
+        <link rel="stylesheet" href="bower/ionicons/css/ionicons.min.css">
+        <!-- DataTables -->
+        <link rel="stylesheet" href="bower/datatables.net-bs/css/dataTables.bootstrap.min.css">
+        <link rel="stylesheet" href="bower/datatables.net-buttons-bs/css/buttons.bootstrap.min.css">
+        <!-- Code Mirror -->
+        <link rel="stylesheet" href="bower/codemirror/codemirror.css">
+        <!-- Fonts -->
+        <link href='fonts/indieflower/indie-flower.css' rel='stylesheet' type='text/css'>
+        <link href='fonts/source-sans-pro/source-sans-pro.css' rel='stylesheet' type='text/css'>
+
+        <!-- Theme style -->
+        <link rel="stylesheet" href="bower/admin-lte/dist/css/AdminLTE.min.css">
+        <!-- Salvattore -->
+        <link rel="stylesheet" href="bower/salvattore/salvattore.css">
+        <!-- AdminLTE Skins. Choose a skin from the css/skins
+           folder instead of downloading all of them to reduce the load. -->
+        <link rel="stylesheet" href="bower/admin-lte/dist/css/skins/_all-skins.min.css">
+        <!-- SchemaSpy -->
+        <link rel="stylesheet" href="schemaSpy.css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+        <script src="bower/html5shiv/html5shiv.min.js"></script>
+        <script src="bower/respond/respond.min.js"></script>
+        <![endif]-->
+    </head>
+    <!-- ADD THE CLASS layout-top-nav TO REMOVE THE SIDEBAR. -->
+    <body class="hold-transition skin-blue layout-top-nav">
+        <div class="wrapper">
+            <header class="main-header">
+                <nav class="navbar navbar-static-top">
+                    <div class="container">
+                        <div class="navbar-header">
+                            <a href="index.html" class="navbar-brand"><b>happyreturns</b> Database</a>
+                            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"><i class="fa fa-bars"></i></button>
+                        </div>
+
+                        <!-- Collect the nav links, forms, and other content for toggling -->
+                        <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
+                            <ul class="nav navbar-nav">
+                                <li><a href="index.html">Tables <span class="sr-only">(current)</span></a></li>
+                                <li><a href="columns.html" title="All of the columns in the schema">Columns</a></li>
+                                <li><a href="constraints.html" title="Useful for diagnosing error messages that just give constraint name or number">Constraints</a></li>
+                                <li><a href="relationships.html" title="Diagram of table relationships">Relationships</a></li>
+                                <li><a href="orphans.html" title="View of tables with neither parents nor children">Orphan&nbsp;Tables</a></li>
+                                <li><a href="anomalies.html" title="Things that might not be quite right">Anomalies</a></li>
+                                <li><a href="routines.html" title="Procedures and functions">Routines</a></li>
+                            </ul>
+                        </div>
+                        <!-- /.navbar-collapse -->
+                        <!-- Navbar Right Menu -->
+                    </div>
+                    <!-- /.container-fluid -->
+                </nav>
+            </header>
+            <!-- Main content -->
+            <!-- Full Width Column -->
+            <div class="content-wrapper">
+                <!-- Content Header (Page header) -->
+                <section class="content-header">
+                    <h1>Utility Tables</h1>
+                </section>
+                <!-- Main content -->
+                <section class="content">
+                    <div class="box box-primary">
+                        <div class="box-header with-border">
+                            <i class="fa fa-code-fork"></i>
+                            <h3 class="box-title">Orphan Tables</h3>
+                        </div>
+                        <div class="box-body">
+                            <div id="grid" data-columns>
+                                <div class="item">
+                                    <img id="shipment_groupDegreeImg" src="diagrams/orphans/shipment_group.1degree.png" usemap="#shipment_group" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="channelDegreeImg" src="diagrams/orphans/channel.1degree.png" usemap="#channel" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="container_instanceDegreeImg" src="diagrams/orphans/container_instance.1degree.png" usemap="#container_instance" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="instance_event_typeDegreeImg" src="diagrams/orphans/instance_event_type.1degree.png" usemap="#instance_event_type" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="instance_reverse_logisticsDegreeImg" src="diagrams/orphans/instance_reverse_logistics.1degree.png" usemap="#instance_reverse_logistics" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="manager_locationDegreeImg" src="diagrams/orphans/manager_location.1degree.png" usemap="#manager_location" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="refund_optionDegreeImg" src="diagrams/orphans/refund_option.1degree.png" usemap="#refund_option" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="shipment_instanceDegreeImg" src="diagrams/orphans/shipment_instance.1degree.png" usemap="#shipment_instance" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="shipment_return_bagDegreeImg" src="diagrams/orphans/shipment_return_bag.1degree.png" usemap="#shipment_return_bag" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="shippo_addressDegreeImg" src="diagrams/orphans/shippo_address.1degree.png" usemap="#shippo_address" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="shippo_return_transactionDegreeImg" src="diagrams/orphans/shippo_return_transaction.1degree.png" usemap="#shippo_return_transaction" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="shippo_transactionDegreeImg" src="diagrams/orphans/shippo_transaction.1degree.png" usemap="#shippo_transaction" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="shopify_addressDegreeImg" src="diagrams/orphans/shopify_address.1degree.png" usemap="#shopify_address" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="zip_to_msaDegreeImg" src="diagrams/orphans/zip_to_msa.1degree.png" usemap="#zip_to_msa" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="batching_ruleDegreeImg" src="diagrams/orphans/batching_rule.1degree.png" usemap="#batching_rule" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="countryDegreeImg" src="diagrams/orphans/country.1degree.png" usemap="#country" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="fedex_printerless_returnDegreeImg" src="diagrams/orphans/fedex_printerless_return.1degree.png" usemap="#fedex_printerless_return" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="flow_step_typeDegreeImg" src="diagrams/orphans/flow_step_type.1degree.png" usemap="#flow_step_type" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="inspection_checkDegreeImg" src="diagrams/orphans/inspection_check.1degree.png" usemap="#inspection_check" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="newgistics_returnDegreeImg" src="diagrams/orphans/newgistics_return.1degree.png" usemap="#newgistics_return" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="pricing_tierDegreeImg" src="diagrams/orphans/pricing_tier.1degree.png" usemap="#pricing_tier" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="shipping_zone_countryDegreeImg" src="diagrams/orphans/shipping_zone_country.1degree.png" usemap="#shipping_zone_country" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="shippo_shipment_transactionDegreeImg" src="diagrams/orphans/shippo_shipment_transaction.1degree.png" usemap="#shippo_shipment_transaction" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="containerDegreeImg" src="diagrams/orphans/container.1degree.png" usemap="#container" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="dhl_shipment_transactionDegreeImg" src="diagrams/orphans/dhl_shipment_transaction.1degree.png" usemap="#dhl_shipment_transaction" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="flow_stepDegreeImg" src="diagrams/orphans/flow_step.1degree.png" usemap="#flow_step" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="flow_step_outcomeDegreeImg" src="diagrams/orphans/flow_step_outcome.1degree.png" usemap="#flow_step_outcome" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="nps_personDegreeImg" src="diagrams/orphans/nps_person.1degree.png" usemap="#nps_person" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="offeringDegreeImg" src="diagrams/orphans/offering.1degree.png" usemap="#offering" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="organizationDegreeImg" src="diagrams/orphans/organization.1degree.png" usemap="#organization" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="partner_shipment_receiptDegreeImg" src="diagrams/orphans/partner_shipment_receipt.1degree.png" usemap="#partner_shipment_receipt" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="retailer_offeringDegreeImg" src="diagrams/orphans/retailer_offering.1degree.png" usemap="#retailer_offering" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="retailer_shipping_adjustmentDegreeImg" src="diagrams/orphans/retailer_shipping_adjustment.1degree.png" usemap="#retailer_shipping_adjustment" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="retailer_shipping_zoneDegreeImg" src="diagrams/orphans/retailer_shipping_zone.1degree.png" usemap="#retailer_shipping_zone" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="retailer_userDegreeImg" src="diagrams/orphans/retailer_user.1degree.png" usemap="#retailer_user" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="location_opening_hoursDegreeImg" src="diagrams/orphans/location_opening_hours.1degree.png" usemap="#location_opening_hours" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="receipt_recipientDegreeImg" src="diagrams/orphans/receipt_recipient.1degree.png" usemap="#receipt_recipient" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="retailer_locationDegreeImg" src="diagrams/orphans/retailer_location.1degree.png" usemap="#retailer_location" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="return_sessionDegreeImg" src="diagrams/orphans/return_session.1degree.png" usemap="#return_session" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="shipment_pickupDegreeImg" src="diagrams/orphans/shipment_pickup.1degree.png" usemap="#shipment_pickup" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="shipping_zoneDegreeImg" src="diagrams/orphans/shipping_zone.1degree.png" usemap="#shipping_zone" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="shipwire_returnDegreeImg" src="diagrams/orphans/shipwire_return.1degree.png" usemap="#shipwire_return" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="webhook_outbound_shipment_eventDegreeImg" src="diagrams/orphans/webhook_outbound_shipment_event.1degree.png" usemap="#webhook_outbound_shipment_event" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="carrier_trackingDegreeImg" src="diagrams/orphans/carrier_tracking.1degree.png" usemap="#carrier_tracking" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="deployDegreeImg" src="diagrams/orphans/deploy.1degree.png" usemap="#deploy" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="msaDegreeImg" src="diagrams/orphans/msa.1degree.png" usemap="#msa" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="partnerDegreeImg" src="diagrams/orphans/partner.1degree.png" usemap="#partner" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="partner_permissionDegreeImg" src="diagrams/orphans/partner_permission.1degree.png" usemap="#partner_permission" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="pickup_schedule_errorDegreeImg" src="diagrams/orphans/pickup_schedule_error.1degree.png" usemap="#pickup_schedule_error" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="retailer_shipping_methodDegreeImg" src="diagrams/orphans/retailer_shipping_method.1degree.png" usemap="#retailer_shipping_method" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="shipping_methodDegreeImg" src="diagrams/orphans/shipping_method.1degree.png" usemap="#shipping_method" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="shipwire_retailerDegreeImg" src="diagrams/orphans/shipwire_retailer.1degree.png" usemap="#shipwire_retailer" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="shopify_gdpr_webhookDegreeImg" src="diagrams/orphans/shopify_gdpr_webhook.1degree.png" usemap="#shopify_gdpr_webhook" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="destinationDegreeImg" src="diagrams/orphans/destination.1degree.png" usemap="#destination" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="gift_card_bonusDegreeImg" src="diagrams/orphans/gift_card_bonus.1degree.png" usemap="#gift_card_bonus" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="location_contactsDegreeImg" src="diagrams/orphans/location_contacts.1degree.png" usemap="#location_contacts" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="partner_retailerDegreeImg" src="diagrams/orphans/partner_retailer.1degree.png" usemap="#partner_retailer" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="refundDegreeImg" src="diagrams/orphans/refund.1degree.png" usemap="#refund" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="retailer_emailsDegreeImg" src="diagrams/orphans/retailer_emails.1degree.png" usemap="#retailer_emails" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="return_dropoff_methodDegreeImg" src="diagrams/orphans/return_dropoff_method.1degree.png" usemap="#return_dropoff_method" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="shopify_locationDegreeImg" src="diagrams/orphans/shopify_location.1degree.png" usemap="#shopify_location" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="bigcommerce_shopDegreeImg" src="diagrams/orphans/bigcommerce_shop.1degree.png" usemap="#bigcommerce_shop" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="retailer_destinationDegreeImg" src="diagrams/orphans/retailer_destination.1degree.png" usemap="#retailer_destination" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="processing_feeDegreeImg" src="diagrams/orphans/processing_fee.1degree.png" usemap="#processing_fee" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="reasonDegreeImg" src="diagrams/orphans/reason.1degree.png" usemap="#reason" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="consumerDegreeImg" src="diagrams/orphans/consumer.1degree.png" usemap="#consumer" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="nps_scoreDegreeImg" src="diagrams/orphans/nps_score.1degree.png" usemap="#nps_score" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="return_processing_feeDegreeImg" src="diagrams/orphans/return_processing_fee.1degree.png" usemap="#return_processing_fee" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="return_shipment_shipping_optionDegreeImg" src="diagrams/orphans/return_shipment_shipping_option.1degree.png" usemap="#return_shipment_shipping_option" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="shipbob_retailerDegreeImg" src="diagrams/orphans/shipbob_retailer.1degree.png" usemap="#shipbob_retailer" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="retailer_hostedDegreeImg" src="diagrams/orphans/retailer_hosted.1degree.png" usemap="#retailer_hosted" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="retailer_style_translationsDegreeImg" src="diagrams/orphans/retailer_style_translations.1degree.png" usemap="#retailer_style_translations" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="whiplash_retailerDegreeImg" src="diagrams/orphans/whiplash_retailer.1degree.png" usemap="#whiplash_retailer" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="fedex_retailerDegreeImg" src="diagrams/orphans/fedex_retailer.1degree.png" usemap="#fedex_retailer" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="representativeDegreeImg" src="diagrams/orphans/representative.1degree.png" usemap="#representative" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="return_shopping_draft_ordersDegreeImg" src="diagrams/orphans/return_shopping_draft_orders.1degree.png" usemap="#return_shopping_draft_orders" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="partner_shipmentDegreeImg" src="diagrams/orphans/partner_shipment.1degree.png" usemap="#partner_shipment" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="return_shipmentDegreeImg" src="diagrams/orphans/return_shipment.1degree.png" usemap="#return_shipment" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="shipment_archiveDegreeImg" src="diagrams/orphans/shipment_archive.1degree.png" usemap="#shipment_archive" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="return_archiveDegreeImg" src="diagrams/orphans/return_archive.1degree.png" usemap="#return_archive" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="returnDegreeImg" src="diagrams/orphans/return.1degree.png" usemap="#return" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="instance_eventDegreeImg" src="diagrams/orphans/instance_event.1degree.png" usemap="#instance_event" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="instance_event_archiveDegreeImg" src="diagrams/orphans/instance_event_archive.1degree.png" usemap="#instance_event_archive" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="instance_archiveDegreeImg" src="diagrams/orphans/instance_archive.1degree.png" usemap="#instance_archive" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="shopify_shopDegreeImg" src="diagrams/orphans/shopify_shop.1degree.png" usemap="#shopify_shop" style="max-width:100%;" border="0" align="top">
+                                </div>
+                                <div class="item">
+                                    <img id="retailer_stylesDegreeImg" src="diagrams/orphans/retailer_styles.1degree.png" usemap="#retailer_styles" style="max-width:100%;" border="0" align="top">
+                                </div>
+                            </div>
+                            <map id="shipment_group" name="shipment_group">
+<area shape="rect" id="node1" href="tables/shipment_group.html" target="_top" title="shipment_group" alt="" coords="5,5,252,104">
+</map><map id="channel" name="channel">
+<area shape="rect" id="node1" href="tables/channel.html" target="_top" title="channel" alt="" coords="5,5,240,133">
+</map><map id="container_instance" name="container_instance">
+<area shape="rect" id="node1" href="tables/container_instance.html" target="_top" title="container_instance" alt="" coords="5,5,325,133">
+</map><map id="instance_event_type" name="instance_event_type">
+<area shape="rect" id="node1" href="tables/instance_event_type.html" target="_top" title="instance_event_type" alt="" coords="5,5,337,133">
+</map><map id="instance_reverse_logistics" name="instance_reverse_logistics">
+<area shape="rect" id="node1" href="tables/instance_reverse_logistics.html" target="_top" title="instance_reverse_logistics" alt="" coords="5,5,409,133">
+</map><map id="manager_location" name="manager_location">
+<area shape="rect" id="node1" href="tables/manager_location.html" target="_top" title="manager_location" alt="" coords="5,5,316,133">
+</map><map id="refund_option" name="refund_option">
+<area shape="rect" id="node1" href="tables/refund_option.html" target="_top" title="refund_option" alt="" coords="5,5,287,133">
+</map><map id="shipment_instance" name="shipment_instance">
+<area shape="rect" id="node1" href="tables/shipment_instance.html" target="_top" title="shipment_instance" alt="" coords="5,5,324,133">
+</map><map id="shipment_return_bag" name="shipment_return_bag">
+<area shape="rect" id="node1" href="tables/shipment_return_bag.html" target="_top" title="shipment_return_bag" alt="" coords="5,5,343,133">
+</map><map id="shippo_address" name="shippo_address">
+<area shape="rect" id="node1" href="tables/shippo_address.html" target="_top" title="shippo_address" alt="" coords="5,5,303,133">
+</map><map id="shippo_return_transaction" name="shippo_return_transaction">
+<area shape="rect" id="node1" href="tables/shippo_return_transaction.html" target="_top" title="shippo_return_transaction" alt="" coords="5,5,383,133">
+</map><map id="shippo_transaction" name="shippo_transaction">
+<area shape="rect" id="node1" href="tables/shippo_transaction.html" target="_top" title="shippo_transaction" alt="" coords="5,5,327,133">
+</map><map id="shopify_address" name="shopify_address">
+<area shape="rect" id="node1" href="tables/shopify_address.html" target="_top" title="shopify_address" alt="" coords="5,5,265,133">
+</map><map id="zip_to_msa" name="zip_to_msa">
+<area shape="rect" id="node1" href="tables/zip_to_msa.html" target="_top" title="zip_to_msa" alt="" coords="5,5,227,133">
+</map><map id="batching_rule" name="batching_rule">
+<area shape="rect" id="node1" href="tables/batching_rule.html" target="_top" title="batching_rule" alt="" coords="5,5,463,163">
+</map><map id="country" name="country">
+<area shape="rect" id="node1" href="tables/country.html" target="_top" title="country" alt="" coords="5,5,249,163">
+</map><map id="fedex_printerless_return" name="fedex_printerless_return">
+<area shape="rect" id="node1" href="tables/fedex_printerless_return.html" target="_top" title="fedex_printerless_return" alt="" coords="5,5,368,163">
+</map><map id="flow_step_type" name="flow_step_type">
+<area shape="rect" id="node1" href="tables/flow_step_type.html" target="_top" title="flow_step_type" alt="" coords="5,5,295,163">
+</map><map id="inspection_check" name="inspection_check">
+<area shape="rect" id="node1" href="tables/inspection_check.html" target="_top" title="inspection_check" alt="" coords="5,5,313,163">
+</map><map id="newgistics_return" name="newgistics_return">
+<area shape="rect" id="node1" href="tables/newgistics_return.html" target="_top" title="newgistics_return" alt="" coords="5,5,364,163">
+</map><map id="pricing_tier" name="pricing_tier">
+<area shape="rect" id="node1" href="tables/pricing_tier.html" target="_top" title="pricing_tier" alt="" coords="5,5,235,163">
+</map><map id="shipping_zone_country" name="shipping_zone_country">
+<area shape="rect" id="node1" href="tables/shipping_zone_country.html" target="_top" title="shipping_zone_country" alt="" coords="5,5,305,163">
+</map><map id="shippo_shipment_transaction" name="shippo_shipment_transaction">
+<area shape="rect" id="node1" href="tables/shippo_shipment_transaction.html" target="_top" title="shippo_shipment_transaction" alt="" coords="5,5,407,163">
+</map><map id="container" name="container">
+<area shape="rect" id="node1" href="tables/container.html" target="_top" title="container" alt="" coords="5,5,269,192">
+</map><map id="dhl_shipment_transaction" name="dhl_shipment_transaction">
+<area shape="rect" id="node1" href="tables/dhl_shipment_transaction.html" target="_top" title="dhl_shipment_transaction" alt="" coords="5,5,379,192">
+</map><map id="flow_step" name="flow_step">
+<area shape="rect" id="node1" href="tables/flow_step.html" target="_top" title="flow_step" alt="" coords="5,5,329,192">
+</map><map id="flow_step_outcome" name="flow_step_outcome">
+<area shape="rect" id="node1" href="tables/flow_step_outcome.html" target="_top" title="flow_step_outcome" alt="" coords="5,5,329,192">
+</map><map id="nps_person" name="nps_person">
+<area shape="rect" id="node1" href="tables/nps_person.html" target="_top" title="nps_person" alt="" coords="5,5,277,192">
+</map><map id="offering" name="offering">
+<area shape="rect" id="node1" href="tables/offering.html" target="_top" title="offering" alt="" coords="5,5,247,192">
+</map><map id="organization" name="organization">
+<area shape="rect" id="node1" href="tables/organization.html" target="_top" title="organization" alt="" coords="5,5,276,192">
+</map><map id="partner_shipment_receipt" name="partner_shipment_receipt">
+<area shape="rect" id="node1" href="tables/partner_shipment_receipt.html" target="_top" title="partner_shipment_receipt" alt="" coords="5,5,376,192">
+</map><map id="retailer_offering" name="retailer_offering">
+<area shape="rect" id="node1" href="tables/retailer_offering.html" target="_top" title="retailer_offering" alt="" coords="5,5,312,192">
+</map><map id="retailer_shipping_adjustment" name="retailer_shipping_adjustment">
+<area shape="rect" id="node1" href="tables/retailer_shipping_adjustment.html" target="_top" title="retailer_shipping_adjustment" alt="" coords="5,5,403,192">
+</map><map id="retailer_shipping_zone" name="retailer_shipping_zone">
+<area shape="rect" id="node1" href="tables/retailer_shipping_zone.html" target="_top" title="retailer_shipping_zone" alt="" coords="5,5,355,192">
+</map><map id="retailer_user" name="retailer_user">
+<area shape="rect" id="node1" href="tables/retailer_user.html" target="_top" title="retailer_user" alt="" coords="5,5,288,192">
+</map><map id="location_opening_hours" name="location_opening_hours">
+<area shape="rect" id="node1" href="tables/location_opening_hours.html" target="_top" title="location_opening_hours" alt="" coords="5,5,365,221">
+</map><map id="receipt_recipient" name="receipt_recipient">
+<area shape="rect" id="node1" href="tables/receipt_recipient.html" target="_top" title="receipt_recipient" alt="" coords="5,5,333,221">
+</map><map id="retailer_location" name="retailer_location">
+<area shape="rect" id="node1" href="tables/retailer_location.html" target="_top" title="retailer_location" alt="" coords="5,5,304,221">
+</map><map id="return_session" name="return_session">
+<area shape="rect" id="node1" href="tables/return_session.html" target="_top" title="return_session" alt="" coords="5,5,305,221">
+</map><map id="shipment_pickup" name="shipment_pickup">
+<area shape="rect" id="node1" href="tables/shipment_pickup.html" target="_top" title="shipment_pickup" alt="" coords="5,5,329,221">
+</map><map id="shipping_zone" name="shipping_zone">
+<area shape="rect" id="node1" href="tables/shipping_zone.html" target="_top" title="shipping_zone" alt="" coords="5,5,293,221">
+</map><map id="shipwire_return" name="shipwire_return">
+<area shape="rect" id="node1" href="tables/shipwire_return.html" target="_top" title="shipwire_return" alt="" coords="5,5,301,221">
+</map><map id="webhook_outbound_shipment_event" name="webhook_outbound_shipment_event">
+<area shape="rect" id="node1" href="tables/webhook_outbound_shipment_event.html" target="_top" title="webhook_outbound_shipment_event" alt="" coords="5,5,464,221">
+</map><map id="carrier_tracking" name="carrier_tracking">
+<area shape="rect" id="node1" href="tables/carrier_tracking.html" target="_top" title="carrier_tracking" alt="" coords="5,5,301,251">
+</map><map id="deploy" name="deploy">
+<area shape="rect" id="node1" href="tables/deploy.html" target="_top" title="deploy" alt="" coords="5,5,269,251">
+</map><map id="msa" name="msa">
+<area shape="rect" id="node1" href="tables/msa.html" target="_top" title="msa" alt="" coords="5,5,251,251">
+</map><map id="partner" name="partner">
+<area shape="rect" id="node1" href="tables/partner.html" target="_top" title="partner" alt="" coords="5,5,336,251">
+</map><map id="partner_permission" name="partner_permission">
+<area shape="rect" id="node1" href="tables/partner_permission.html" target="_top" title="partner_permission" alt="" coords="5,5,331,251">
+</map><map id="pickup_schedule_error" name="pickup_schedule_error">
+<area shape="rect" id="node1" href="tables/pickup_schedule_error.html" target="_top" title="pickup_schedule_error" alt="" coords="5,5,381,251">
+</map><map id="retailer_shipping_method" name="retailer_shipping_method">
+<area shape="rect" id="node1" href="tables/retailer_shipping_method.html" target="_top" title="retailer_shipping_method" alt="" coords="5,5,376,251">
+</map><map id="shipping_method" name="shipping_method">
+<area shape="rect" id="node1" href="tables/shipping_method.html" target="_top" title="shipping_method" alt="" coords="5,5,323,251">
+</map><map id="shipwire_retailer" name="shipwire_retailer">
+<area shape="rect" id="node1" href="tables/shipwire_retailer.html" target="_top" title="shipwire_retailer" alt="" coords="5,5,308,251">
+</map><map id="shopify_gdpr_webhook" name="shopify_gdpr_webhook">
+<area shape="rect" id="node1" href="tables/shopify_gdpr_webhook.html" target="_top" title="shopify_gdpr_webhook" alt="" coords="5,5,369,251">
+</map><map id="destination" name="destination">
+<area shape="rect" id="node1" href="tables/destination.html" target="_top" title="destination" alt="" coords="5,5,267,280">
+</map><map id="gift_card_bonus" name="gift_card_bonus">
+<area shape="rect" id="node1" href="tables/gift_card_bonus.html" target="_top" title="gift_card_bonus" alt="" coords="5,5,304,280">
+</map><map id="location_contacts" name="location_contacts">
+<area shape="rect" id="node1" href="tables/location_contacts.html" target="_top" title="location_contacts" alt="" coords="5,5,316,280">
+</map><map id="partner_retailer" name="partner_retailer">
+<area shape="rect" id="node1" href="tables/partner_retailer.html" target="_top" title="partner_retailer" alt="" coords="5,5,299,280">
+</map><map id="refund" name="refund">
+<area shape="rect" id="node1" href="tables/refund.html" target="_top" title="refund" alt="" coords="5,5,308,280">
+</map><map id="retailer_emails" name="retailer_emails">
+<area shape="rect" id="node1" href="tables/retailer_emails.html" target="_top" title="retailer_emails" alt="" coords="5,5,293,280">
+</map><map id="return_dropoff_method" name="return_dropoff_method">
+<area shape="rect" id="node1" href="tables/return_dropoff_method.html" target="_top" title="return_dropoff_method" alt="" coords="5,5,365,280">
+</map><map id="shopify_location" name="shopify_location">
+<area shape="rect" id="node1" href="tables/shopify_location.html" target="_top" title="shopify_location" alt="" coords="5,5,368,280">
+</map><map id="bigcommerce_shop" name="bigcommerce_shop">
+<area shape="rect" id="node1" href="tables/bigcommerce_shop.html" target="_top" title="bigcommerce_shop" alt="" coords="5,5,389,309">
+</map><map id="retailer_destination" name="retailer_destination">
+<area shape="rect" id="node1" href="tables/retailer_destination.html" target="_top" title="retailer_destination" alt="" coords="5,5,328,309">
+</map><map id="processing_fee" name="processing_fee">
+<area shape="rect" id="node1" href="tables/processing_fee.html" target="_top" title="processing_fee" alt="" coords="5,5,316,339">
+</map><map id="reason" name="reason">
+<area shape="rect" id="node1" href="tables/reason.html" target="_top" title="reason" alt="" coords="5,5,341,339">
+</map><map id="consumer" name="consumer">
+<area shape="rect" id="node1" href="tables/consumer.html" target="_top" title="consumer" alt="" coords="5,5,327,368">
+</map><map id="nps_score" name="nps_score">
+<area shape="rect" id="node1" href="tables/nps_score.html" target="_top" title="nps_score" alt="" coords="5,5,344,368">
+</map><map id="return_processing_fee" name="return_processing_fee">
+<area shape="rect" id="node1" href="tables/return_processing_fee.html" target="_top" title="return_processing_fee" alt="" coords="5,5,353,368">
+</map><map id="return_shipment_shipping_option" name="return_shipment_shipping_option">
+<area shape="rect" id="node1" href="tables/return_shipment_shipping_option.html" target="_top" title="return_shipment_shipping_option" alt="" coords="5,5,439,397">
+</map><map id="shipbob_retailer" name="shipbob_retailer">
+<area shape="rect" id="node1" href="tables/shipbob_retailer.html" target="_top" title="shipbob_retailer" alt="" coords="5,5,344,397">
+</map><map id="retailer_hosted" name="retailer_hosted">
+<area shape="rect" id="node1" href="tables/retailer_hosted.html" target="_top" title="retailer_hosted" alt="" coords="5,5,356,456">
+</map><map id="retailer_style_translations" name="retailer_style_translations">
+<area shape="rect" id="node1" href="tables/retailer_style_translations.html" target="_top" title="retailer_style_translations" alt="" coords="5,5,377,456">
+</map><map id="whiplash_retailer" name="whiplash_retailer">
+<area shape="rect" id="node1" href="tables/whiplash_retailer.html" target="_top" title="whiplash_retailer" alt="" coords="5,5,312,456">
+</map><map id="fedex_retailer" name="fedex_retailer">
+<area shape="rect" id="node1" href="tables/fedex_retailer.html" target="_top" title="fedex_retailer" alt="" coords="5,5,327,485">
+</map><map id="representative" name="representative">
+<area shape="rect" id="node1" href="tables/representative.html" target="_top" title="representative" alt="" coords="5,5,367,485">
+</map><map id="return_shopping_draft_orders" name="return_shopping_draft_orders">
+<area shape="rect" id="node1" href="tables/return_shopping_draft_orders.html" target="_top" title="return_shopping_draft_orders" alt="" coords="5,5,413,485">
+</map><map id="partner_shipment" name="partner_shipment">
+<area shape="rect" id="node1" href="tables/partner_shipment.html" target="_top" title="partner_shipment" alt="" coords="5,5,352,515">
+</map><map id="return_shipment" name="return_shipment">
+<area shape="rect" id="node1" href="tables/return_shipment.html" target="_top" title="return_shipment" alt="" coords="5,5,360,603">
+</map><map id="shipment_archive" name="shipment_archive">
+<area shape="rect" id="node1" href="tables/shipment_archive.html" target="_top" title="shipment_archive" alt="" coords="5,5,339,603">
+</map><map id="return_archive" name="return_archive">
+<area shape="rect" id="node1" href="tables/return_archive.html" target="_top" title="return_archive" alt="" coords="5,5,379,661">
+</map><map id="return" name="return">
+<area shape="rect" id="node1" href="tables/return.html" target="_top" title="return" alt="" coords="5,5,379,720">
+</map><map id="instance_event" name="instance_event">
+<area shape="rect" id="node1" href="tables/instance_event.html" target="_top" title="instance_event" alt="" coords="5,5,353,749">
+</map><map id="instance_event_archive" name="instance_event_archive">
+<area shape="rect" id="node1" href="tables/instance_event_archive.html" target="_top" title="instance_event_archive" alt="" coords="5,5,385,749">
+</map><map id="instance_archive" name="instance_archive">
+<area shape="rect" id="node1" href="tables/instance_archive.html" target="_top" title="instance_archive" alt="" coords="5,5,372,867">
+</map><map id="shopify_shop" name="shopify_shop">
+<area shape="rect" id="node1" href="tables/shopify_shop.html" target="_top" title="shopify_shop" alt="" coords="5,5,503,896">
+</map><map id="retailer_styles" name="retailer_styles">
+<area shape="rect" id="node1" href="tables/retailer_styles.html" target="_top" title="retailer_styles" alt="" coords="5,5,413,984">
+</map>
+                        </div>
+                    </div>
+                </section>
+            </div>
+            <!-- /.content-wrapper -->
+            <footer class="main-footer">
+                <div>
+                    <div class="pull-right hidden-xs">
+                        <a href="https://github.com/schemaspy/schemaspy" title="GitHub for SchemaSpy"><i class="fa fa-github-square fa-2x"></i></a>
+                        <a href="http://stackoverflow.com/questions/tagged/schemaspy" title="StackOverflow for SchemaSpy"><i class="fa fa-stack-overflow fa-2x"></i></a>
+                    </div>
+                    <strong>Generated by <a href="http://schemaspy.org/" class="logo-text"><i class="fa fa-database"></i> SchemaSpy 6.1.0</a></strong>
+                </div>
+                <!-- /.container -->
+            </footer>
+        </div>
+        <!-- ./wrapper -->
+
+        <!-- jQuery 2.2.3 -->
+        <script src="bower/admin-lte/plugins/jQuery/jquery-2.2.3.min.js"></script>
+        <script src="bower/admin-lte/plugins/jQueryUI/jquery-ui.min.js"></script>
+        <!-- Bootstrap 3.3.5 -->
+        <script src="bower/admin-lte/bootstrap/js/bootstrap.min.js"></script>
+        <!-- DataTables -->
+        <script src="bower/datatables.net/jquery.dataTables.min.js"></script>
+        <script src="bower/datatables.net-bs/js/dataTables.bootstrap.min.js"></script>
+        <script src="bower/datatables.net-buttons/dataTables.buttons.min.js"></script>
+        <script src="bower/datatables.net-buttons-bs/js/buttons.bootstrap.min.js"></script>
+        <script src="bower/datatables.net-buttons/buttons.html5.min.js"></script>
+        <script src="bower/datatables.net-buttons/buttons.print.min.js"></script>
+        <script src="bower/datatables.net-buttons/buttons.colVis.min.js"></script>
+        <!-- SheetJS -->
+        <script src="bower/js-xlsx/xlsx.full.min.js"></script>
+        <!-- pdfmake -->
+        <script src="bower/pdfmake/pdfmake.min.js"></script>
+        <script src="bower/pdfmake/vfs_fonts.js"></script>
+        <!-- SlimScroll -->
+        <script src="bower/admin-lte/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+        <!-- FastClick -->
+        <script src="bower/admin-lte/plugins/fastclick/fastclick.js"></script>
+        <!-- Salvattore -->
+        <script src="bower/salvattore/salvattore.min.js"></script>
+        <!-- AnchorJS -->
+        <script src="bower/anchor-js/anchor.min.js"></script>
+        <!-- CodeMirror -->
+        <script src="bower/codemirror/codemirror.js"></script>
+        <script src="bower/codemirror/sql.js"></script>
+        <!-- AdminLTE App -->
+        <script src="bower/admin-lte/dist/js/app.min.js"></script>
+        <script src=""></script>
+        <script src="schemaSpy.js"></script>
+    </body>
+</html>

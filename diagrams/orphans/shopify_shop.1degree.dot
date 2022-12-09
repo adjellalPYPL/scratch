@@ -1,0 +1,57 @@
+digraph "shopify_shop" {
+  graph [
+    rankdir="RL"
+    bgcolor="#ffffff"
+    nodesep="0.18"
+    ranksep="0.46"
+    fontname="Helvetica"
+    fontsize="11"
+    ration="compress"
+  ];
+  node [
+    fontname="Helvetica"
+    fontsize="11"
+    shape="plaintext"
+  ];
+  edge [
+    arrowsize="0.8"
+  ];
+  "shopify_shop" [
+   label=<
+    <TABLE BORDER="2" CELLBORDER="1" CELLSPACING="0" BGCOLOR="#ffffff">
+      <TR><TD COLSPAN="4"  BGCOLOR="#f5f5f5"><TABLE BORDER="0" CELLSPACING="0"><TR><TD ALIGN="LEFT"><B>shopify_shop</B></TD><TD ALIGN="RIGHT">[table]</TD></TR></TABLE></TD></TR>
+      <TR><TD PORT="shop" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"><IMG SRC="../../images/primaryKeys.png"/></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="223" HEIGHT="16">shop</TD></TR></TABLE></TD><TD PORT="shop.type" ALIGN="LEFT">varchar[2147483647]</TD></TR>
+      <TR><TD PORT="created" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="223" HEIGHT="16">created</TD></TR></TABLE></TD><TD PORT="created.type" ALIGN="LEFT">timestamp[29,6]</TD></TR>
+      <TR><TD PORT="access_token" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="223" HEIGHT="16">access_token</TD></TR></TABLE></TD><TD PORT="access_token.type" ALIGN="LEFT">varchar[2147483647]</TD></TR>
+      <TR><TD PORT="refresh_token" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="223" HEIGHT="16">refresh_token</TD></TR></TABLE></TD><TD PORT="refresh_token.type" ALIGN="LEFT">varchar[2147483647]</TD></TR>
+      <TR><TD PORT="display_name" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="223" HEIGHT="16">display_name</TD></TR></TABLE></TD><TD PORT="display_name.type" ALIGN="LEFT">varchar[2147483647]</TD></TR>
+      <TR><TD PORT="retailer_id" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="223" HEIGHT="16">retailer_id</TD></TR></TABLE></TD><TD PORT="retailer_id.type" ALIGN="LEFT">text[2147483647]</TD></TR>
+      <TR><TD PORT="hide_vendor" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="223" HEIGHT="16">hide_vendor</TD></TR></TABLE></TD><TD PORT="hide_vendor.type" ALIGN="LEFT">bool[1]</TD></TR>
+      <TR><TD PORT="burst" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="223" HEIGHT="16">burst</TD></TR></TABLE></TD><TD PORT="burst.type" ALIGN="LEFT">int4[10]</TD></TR>
+      <TR><TD PORT="requests_per_second" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="223" HEIGHT="16">requests_per_second</TD></TR></TABLE></TD><TD PORT="requests_per_second.type" ALIGN="LEFT">int4[10]</TD></TR>
+      <TR><TD PORT="shopify_location_id" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="223" HEIGHT="16">shopify_location_id</TD></TR></TABLE></TD><TD PORT="shopify_location_id.type" ALIGN="LEFT">int8[19]</TD></TR>
+      <TR><TD PORT="shopify_restocking_location_id" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="223" HEIGHT="16">shopify_restocking_location_id</TD></TR></TABLE></TD><TD PORT="shopify_restocking_location_id.type" ALIGN="LEFT">int8[19]</TD></TR>
+      <TR><TD PORT="collection_exchange_attribute" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="223" HEIGHT="16">collection_exchange_attribute</TD></TR></TABLE></TD><TD PORT="collection_exchange_attribute.type" ALIGN="LEFT">text[2147483647]</TD></TR>
+      <TR><TD PORT="offers_zero_dollar_exchange" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="223" HEIGHT="16">offers_zero_dollar_exchange</TD></TR></TABLE></TD><TD PORT="offers_zero_dollar_exchange.type" ALIGN="LEFT">bool[1]</TD></TR>
+      <TR><TD PORT="disable_oversell_check" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="223" HEIGHT="16">disable_oversell_check</TD></TR></TABLE></TD><TD PORT="disable_oversell_check.type" ALIGN="LEFT">bool[1]</TD></TR>
+      <TR><TD PORT="exchange_variant_inventory_threshold" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="223" HEIGHT="16">exchange_variant_inventory_threshold</TD></TR></TABLE></TD><TD PORT="exchange_variant_inventory_threshold.type" ALIGN="LEFT">int8[19]</TD></TR>
+      <TR><TD PORT="oauth_scopes" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="223" HEIGHT="16">oauth_scopes</TD></TR></TABLE></TD><TD PORT="oauth_scopes.type" ALIGN="LEFT">text[2147483647]</TD></TR>
+      <TR><TD PORT="label_type" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="223" HEIGHT="16">label_type</TD></TR></TABLE></TD><TD PORT="label_type.type" ALIGN="LEFT">text[2147483647]</TD></TR>
+      <TR><TD PORT="plan" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="223" HEIGHT="16">plan</TD></TR></TABLE></TD><TD PORT="plan.type" ALIGN="LEFT">text[2147483647]</TD></TR>
+      <TR><TD PORT="inventory_behavior" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="223" HEIGHT="16">inventory_behavior</TD></TR></TABLE></TD><TD PORT="inventory_behavior.type" ALIGN="LEFT">text[2147483647]</TD></TR>
+      <TR><TD PORT="app_type" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="223" HEIGHT="16">app_type</TD></TR></TABLE></TD><TD PORT="app_type.type" ALIGN="LEFT">text[2147483647]</TD></TR>
+      <TR><TD PORT="recurring_application_charge_id" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="223" HEIGHT="16">recurring_application_charge_id</TD></TR></TABLE></TD><TD PORT="recurring_application_charge_id.type" ALIGN="LEFT">int8[19]</TD></TR>
+      <TR><TD PORT="charge_status" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="223" HEIGHT="16">charge_status</TD></TR></TABLE></TD><TD PORT="charge_status.type" ALIGN="LEFT">text[2147483647]</TD></TR>
+      <TR><TD PORT="webhook_uninstall_id" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="223" HEIGHT="16">webhook_uninstall_id</TD></TR></TABLE></TD><TD PORT="webhook_uninstall_id.type" ALIGN="LEFT">int8[19]</TD></TR>
+      <TR><TD PORT="offers_zero_dollar_return" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="223" HEIGHT="16">offers_zero_dollar_return</TD></TR></TABLE></TD><TD PORT="offers_zero_dollar_return.type" ALIGN="LEFT">bool[1]</TD></TR>
+      <TR><TD PORT="billing_on" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="223" HEIGHT="16">billing_on</TD></TR></TABLE></TD><TD PORT="billing_on.type" ALIGN="LEFT">date[13]</TD></TR>
+      <TR><TD PORT="add_order_number_to_label" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="223" HEIGHT="16">add_order_number_to_label</TD></TR></TABLE></TD><TD PORT="add_order_number_to_label.type" ALIGN="LEFT">bool[1]</TD></TR>
+      <TR><TD PORT="final_sale_decimals" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="223" HEIGHT="16">final_sale_decimals</TD></TR></TABLE></TD><TD PORT="final_sale_decimals.type" ALIGN="LEFT">_int4[10]</TD></TR>
+      <TR><TD PORT="shopify_returns_enabled" COLSPAN="2" ALIGN="LEFT"><TABLE BORDER="0" CELLSPACING="0" ALIGN="LEFT"><TR ALIGN="LEFT"><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="15" HEIGHT="16"></TD><TD ALIGN="LEFT" FIXEDSIZE="TRUE" WIDTH="223" HEIGHT="16">shopify_returns_enabled</TD></TR></TABLE></TD><TD PORT="shopify_returns_enabled.type" ALIGN="LEFT">bool[1]</TD></TR>
+      <TR><TD ALIGN="LEFT" BGCOLOR="#ffffff">&lt; 0</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">2,303 rows</TD><TD ALIGN="RIGHT" BGCOLOR="#ffffff">0 &gt;</TD></TR>
+    </TABLE>>
+    URL="tables/shopify_shop.html"
+    target="_top"
+    tooltip="shopify_shop"
+  ];
+}
