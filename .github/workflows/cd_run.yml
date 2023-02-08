@@ -21,7 +21,7 @@ on:
     inputs:
       validate-only:
         description: dry-run, validate the policies but does not deploy them
-        type: bool
+        type: boolean
         required: false
         default: true
       environment:
