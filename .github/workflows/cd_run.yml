@@ -24,6 +24,8 @@ on:
         type: boolean
         required: false
         default: true
+      policies:
+        files: policy/*
       environment:
         description: Environment to run against
         default: dev
