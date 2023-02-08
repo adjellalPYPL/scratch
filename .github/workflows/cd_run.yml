@@ -25,7 +25,7 @@ on:
         required: false
         default: true
       policies:
-        files: policy/*
+        files: policy/**/*
       environment:
         description: Environment to run against
         default: dev
