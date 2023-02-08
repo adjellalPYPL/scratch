@@ -1,0 +1,104 @@
+# This workflow runs a single MV script against an enviromment
+#
+# The refresh-materialized-view-data-cli will always be built from the master branch.
+# The script to run will be pulled from the branch that matches its deployment environment
+#   | env  | branch   |
+#   | ---- | -------- |
+#   |dev   | dev      |
+#   |qa    | qa       |
+#   |stage | release  |
+#   |prod  | release  |
+
+name: Manual - Run CLI
+run-name: Run CLI ${{ inputs.environment }}::${{ inputs.script-path }}
+
+concurrency:
+  group: refresh-materialized-view-data-cli-${{ inputs.environment }}
+  cancel-in-progress: false
+
+on:
+  workflow_dispatch:
+    inputs:
+      validate-only:
+        description: dry-run, validate the policies but does not deploy them
+        type: bool
+        required: false
+        default: true
+      environment:
+        description: Environment to run against
+        default: dev
+        type: choice
+        options:
+          - dev
+          - dev-1
+          - dev-2
+          - dev-3
+          - dev-4
+          - dev-5
+          - dev-6
+          - dev-7
+          - dev-8
+          - dev-9
+          - dev-10
+          - dev-11
+          - dev-12
+          - dev-13
+          - dev-14
+          - dev-15
+          - dev-16
+          - dev-17
+          - dev-18
+          - dev-19
+          - dev-20
+          - qa
+          - stage
+          - prod
+
+defaults:
+  run:
+    shell: bash
+
+jobs:
+  preflight:
+    name: Preflight
+    runs-on:
+      group: pulumi-iac
+    outputs:
+      HR_BRANCH: ${{ steps.validate.outputs.HR_BRANCH }}
+    steps:
+      - name: Validate branch
+        id: validate
+        run: |
+          if [[ "${{ inputs.environment }}" == "stage" || "${{ inputs.environment }}" == "prod" ]]; then
+            echo "To run agaisnt stage or prod, this workflow can must be run from the master branch" 1>&2
+            exit 1
+          fi
+  run-policies:
+    name: Run all policies
+    needs:
+      - preflight
+    runs-on:
+      group: pulumi-iac
+    environment: ${{ inputs.environment }}
+    env:
+      HR_APP: data-lifetime-policy_gha
+      HR_ENV: ${{ inputs.environment }}
+      DRY_RUN: ${{ inputs.validate-only }}
+      HR_BRANCH: ${{ needs.preflight.outputs.HR_BRANCH }}
+    steps:
+      - name: Checkout branch
+        uses: actions/checkout@v3
+        with:
+          ref: ${{ env.HR_BRANCH }}
+
+      - uses: actions/setup-go@v3
+        with:
+          check-latest: true
+          go-version: "1.19"
+
+      - name: Go build
+        working-directory: .
+        run: make build-linux
+
+      - name: Run
+        run: ./data-lifetime-policy "${{ inputs.script-path }}"
