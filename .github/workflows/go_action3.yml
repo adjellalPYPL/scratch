@@ -61,7 +61,6 @@ jobs:
     - name: Test
       run: | 
         go test -coverprofile=coverage.out -v ./... | go-junit-report -set-exit-code > report.xml
-        junit2cobertura report.xml > coverage.xml
 
     - name: Test Summary
       uses: test-summary/action@v2
