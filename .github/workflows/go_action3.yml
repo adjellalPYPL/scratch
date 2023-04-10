@@ -72,8 +72,5 @@ jobs:
 
     - name: Post coverage summary comment
       run: |
-        echo "" >> $GITHUB_STEP_SUMMARY
-        echo "===> Coverage <===" >> $GITHUB_STEP_SUMMARY
-        echo "" >> $GITHUB_STEP_SUMMARY
-        go tool cover -func coverage.out  >> $GITHUB_STEP_SUMMARY
-        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "</br></br>" >> $GITHUB_STEP_SUMMARY
+        cat coverage.html >> $GITHUB_STEP_SUMMARY
