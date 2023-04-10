@@ -61,8 +61,7 @@ jobs:
 
     - name: Test
       run: | 
-        CVPKG=$(go list ./... | grep -v mocks | tr '\n' ',')
-        go test -coverpkg=${CVPKG} -coverprofile=coverage.out -v ./... | go-junit-report -set-exit-code > report.xml
+        go test -coverprofile=coverage.out -v ./... | go-junit-report -set-exit-code > report.xml
         go tool cover -html=coverage.out -o cobertura.html
         gocov-xml < coverage.out > coverage.cobertura.xml
 
