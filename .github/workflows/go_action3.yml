@@ -60,7 +60,9 @@ jobs:
 
     - name: Test
       run: | 
-        go test -coverprofile=coverage.out -v ./... | go-junit-report -set-exit-code > report.xml
+        go test -coverprofile=coverage.out -v ./... > test.output
+        cat test.output | go-junit-report -set-exit-code > report.xml
+        go tool cover -html=coverage.out -o coverage.html
 
     - name: Test Summary
       uses: test-summary/action@v2
@@ -68,5 +70,15 @@ jobs:
         paths: report.xml
       if: always()
 
-    - name: Update coverage report
-      uses: ncruces/go-coverage-report@main
+    - name: Post coverage summary comment
+      uses: actions/github-script@v4
+      with:
+        script: |
+          const fs = require('fs');
+          const coverageReport = fs.readFileSync('coverage.txt', 'utf8');
+          github.issues.createComment({
+            owner: context.repo.owner,
+            repo: context.repo.repo,
+            issue_number: context.issue.number,
+            body: coverageReport,
+          });
