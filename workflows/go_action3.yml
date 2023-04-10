@@ -1,0 +1,67 @@
+name: Go Test
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+      - master
+  pull_request:
+      - main
+      - master
+
+jobs:
+  build:
+    env:
+      GOPRIVATE: github.com/happyreturns
+      GITHUB_TOKEN: ${{ secrets.INFRA_BOT_PAT }}
+      CGO_ENABLED: 0
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+
+    # Clean up .gitconfig
+    - name: Prep Git config
+      run: |
+        rm -f ~/.gitconfig
+        git config --global core.quotepath true
+        git config --global url.https://$GITHUB_TOKEN@github.com/.insteadOf https://github.com/ 
+        cat ~/.gitconfig
+
+    - name: Set up Go
+      uses: actions/setup-go@v3
+      with:
+        go-version: 1.18
+
+    - uses: actions/cache@v3
+      with:
+        path: |
+          ~/go/pkg/mod
+          ~/.cache/go-build
+      key: ${{ hashFiles('**/go.sum') }}
+
+    - name: Install dependencies
+      run: |
+        export GOPATH="$HOME/go/"
+        export PATH=$PATH:$GOPATH/bin
+        go install github.com/golang/mock/mockgen@v1.6.0
+        go install github.com/jstemmer/go-junit-report@latest
+
+    - name: Get dependencies
+      run: |
+        go get -v -t -d ./...        
+
+    - name: Build
+      run: go build -v ./...
+
+    - name: Generate
+      run: go generate ./...
+
+    - name: Test
+      run: go test -v ./... | go-junit-report -set-exit-code > report.xml
+
+    - name: Test Summary
+      uses: test-summary/action@v1
+      with:
+        paths: report.xml
+      if: always()
