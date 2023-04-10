@@ -47,7 +47,6 @@ jobs:
         export PATH=$PATH:$GOPATH/bin
         go install github.com/golang/mock/mockgen@v1.6.0
         go install github.com/jstemmer/go-junit-report@latest
-        pip install junit2cobertura
 
     - name: Get dependencies
       run: |
@@ -71,7 +70,9 @@ jobs:
       if: always()
 
     - name: Code Coverage Summary Report
-      uses: irongut/CodeCoverageSummary@v1.3.0
+      uses: dorny/test-reporter@v1
       with:
-        filename: cobertura.xml
-      if: always()
+        artifact: test-results
+        name: Tests
+        path: 'coverage.xml'
+        reporter: jest-junit
