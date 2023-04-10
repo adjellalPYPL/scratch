@@ -39,7 +39,7 @@ jobs:
         path: |
           ~/go/pkg/mod
           ~/.cache/go-build
-      key: ${{ hashFiles('**/go.sum') }}
+        key: ${{ hashFiles('**/go.sum') }}
 
     - name: Install dependencies
       run: |
