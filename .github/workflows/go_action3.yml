@@ -74,5 +74,7 @@ jobs:
         echo "" >> $GITHUB_STEP_SUMMARY
         echo "===> Coverage <===" >> $GITHUB_STEP_SUMMARY
         echo "" >> $GITHUB_STEP_SUMMARY
+        go tool cover -func=coverage.out >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
         go-cover-view -report coverage.out -output markdown  >> $GITHUB_STEP_SUMMARY
         echo "" >> $GITHUB_STEP_SUMMARY
