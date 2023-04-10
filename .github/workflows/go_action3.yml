@@ -12,7 +12,7 @@ on:
       - master
 
 jobs:
-  build:
+  tests:
     env:
       GOPRIVATE: github.com/adjellalPYPL
       GITHUB_TOKEN: ${{ secrets.INFRA_BOT_PAT }}
@@ -59,10 +59,18 @@ jobs:
       run: go generate ./...
 
     - name: Test
-      run: go test -v ./... | go-junit-report -set-exit-code > report.xml
+      run: | 
+        CVPKG=$(go list ./... | grep -v mocks | tr '\n' ',')
+        go test -coverpkg=${CVPKG} -coverprofile=coverage.out -covermode=count -v ./... | go-junit-report -set-exit-code > report.xml
 
     - name: Test Summary
       uses: test-summary/action@v2
       with:
         paths: report.xml
+      if: always()
+
+    - name: Code Coverage Summary Report
+      uses: irongut/CodeCoverageSummary@v1.3.0
+      with:
+        filename: report.xml
       if: always()
