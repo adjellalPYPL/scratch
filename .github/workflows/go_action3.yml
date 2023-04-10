@@ -47,10 +47,11 @@ jobs:
         export PATH=$PATH:$GOPATH/bin
         go install github.com/golang/mock/mockgen@v1.6.0
         go install github.com/jstemmer/go-junit-report@latest
+        go install github.com/AlekSi/gocov-xml@latest
 
     - name: Get dependencies
       run: |
-        go get -v -t -d ./...        
+        go get -v -t -d ./...
 
     - name: Build
       run: go build -v ./...
@@ -61,8 +62,9 @@ jobs:
     - name: Test
       run: | 
         CVPKG=$(go list ./... | grep -v mocks | tr '\n' ',')
-        go test -coverpkg=${CVPKG} -coverprofile=coverage.out -covermode=count -v ./... | go-junit-report -set-exit-code > report.xml
-        go tool cover -html=coverage.out -o cobertura.xml
+        go test -coverpkg=${CVPKG} -coverprofile=coverage.out -v ./... | go-junit-report -set-exit-code > report.xml
+        go tool cover -html=coverage.out -o cobertura.html
+        gocov-xml < coverage.out > coverage.cobertura.xml
 
     - name: Test Summary
       uses: test-summary/action@v2
