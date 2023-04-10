@@ -47,7 +47,7 @@ jobs:
         export PATH=$PATH:$GOPATH/bin
         go install github.com/golang/mock/mockgen@v1.6.0
         go install github.com/jstemmer/go-junit-report@latest
-        go install github.com/AlekSi/gocov-xml@latest
+        pip install junit2cobertura
 
     - name: Get dependencies
       run: |
@@ -62,8 +62,7 @@ jobs:
     - name: Test
       run: | 
         go test -coverprofile=coverage.out -v ./... | go-junit-report -set-exit-code > report.xml
-        go tool cover -html=coverage.out -o cobertura.html
-        gocov-xml < coverage.out > coverage.cobertura.xml
+        junit2cobertura report.xml > coverage.xml
 
     - name: Test Summary
       uses: test-summary/action@v2
