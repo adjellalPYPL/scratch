@@ -47,6 +47,7 @@ jobs:
         export PATH=$PATH:$GOPATH/bin
         go install github.com/golang/mock/mockgen@v1.6.0
         go install github.com/jstemmer/go-junit-report@latest
+        sudo apt-get update && sudo apt-get install pandoc -y
 
     - name: Get dependencies
       run: |
@@ -62,7 +63,6 @@ jobs:
       run: | 
         go test -coverprofile=coverage.out -v ./... > test.output
         cat test.output | go-junit-report -set-exit-code > report.xml
-        go tool cover -html=coverage.out -o coverage.html
 
     - name: Test Summary
       uses: test-summary/action@v2
@@ -72,5 +72,8 @@ jobs:
 
     - name: Post coverage summary comment
       run: |
-        echo "</br></br>" >> $GITHUB_STEP_SUMMARY
-        cat coverage.html >> $GITHUB_STEP_SUMMARY
+        go tool cover -html=coverage.out -o coverage.html
+        pandoc -f html -t markdown coverage.html -o coverage.md
+        echo "  " >> $GITHUB_STEP_SUMMARY
+        echo "  " >> $GITHUB_STEP_SUMMARY
+        cat coverage.md >> $GITHUB_STEP_SUMMARY
