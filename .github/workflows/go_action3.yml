@@ -68,10 +68,5 @@ jobs:
         paths: report.xml
       if: always()
 
-    - name: Code Coverage Summary Report
-      uses: dorny/test-reporter@v1
-      with:
-        artifact: test-results
-        name: Tests
-        paths: report.xml
-        reporter: jest-junit
+    - name: Update coverage report
+      uses: ncruces/go-coverage-report@main
